@@ -96,26 +96,20 @@ def common_items(list1, list2):
         [1, 1, 2, 2]
 
     """
-    new_list = []
-    new_list.extend(list1)
-    new_list.extend(list2)
-    #return new_list
-    the_dict = {}
-    for i in new_list:
-        if i not in the_dict:
-            the_dict[i] = new_list.count(i)
+    # new_list = []    # Creating a new list containing two lists
+    # new_list.extend(list1)
+    # new_list.extend(list2)
+    # #return new_list
+    # the_dict = {}    #
+    # for i in new_list:
+    #     the_dict[i] = new_list.count(i)
 
-    the_keys = []
-    for key, value in the_dict.items():
-        if the_dict[key] > 1:
-            the_keys.append(key)
-    return the_keys
+    # the_keys = []
+    # for key, value in the_dict.items():
+    #     if the_dict[key] > 1:
+    #         the_keys.append(key)
+    # return the_keys
 
-
-
-
-
-    
 
 def unique_common_items(list1, list2):
     """Produce the set of *unique* common items in two lists.
@@ -138,8 +132,20 @@ def unique_common_items(list1, list2):
         [1, 2]
 
     """
+    new_list = []    # Creating a new list containing two lists
+    new_list.extend(list1)
+    new_list.extend(list2)
+    #return new_list
+    the_dict = {}    #
+    for i in new_list:
+        the_dict[i] = new_list.count(i)
 
-    return []
+    the_keys = []
+    for key, value in the_dict.items():
+        if the_dict[key] > 1:
+            the_keys.append(key)
+    return the_keys
+
 
 
 def sum_zero(list1):
