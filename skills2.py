@@ -296,7 +296,18 @@ def pirate_talk(phrase):
             "restaurant": "galley", "your": "yer", "excuse": "arr", "students": "swabbies",
             "are": "be","lawyer": "foul blaggart", "the" :"th'", "restroom": "head",
             "my": "me", "hello": "avast", "is": "be","man": "matey" }
-    
+
+    list_of_phrase = phrase.split()
+    list_of_dict = my_dict.keys()
+
+    new_list = []
+    for i in list_of_phrase:
+        if i not in list_of_dict:
+            new_list.append(i)
+        else:
+            new_list.append(my_dict[i])
+    the_result = ' '.join(new_list)
+    return the_result
 
 
 
