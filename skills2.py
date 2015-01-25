@@ -97,16 +97,15 @@ def common_items(list1, list2):
 
     """
     new_list = []    # Creating a new list containing two lists
-    new_list.extend(list1)
-    new_list.extend(list2)
-    #return new_list
-    the_second_list = [] #
-    for i in new_list:
-       if new_list.count(i) > 1:
-            the_second_list.append(i)
-    return the_second_list
-
-
+    for i in list1:
+        if list1.count(i) > 1:
+            new_list.append(i)
+        elif list1.count(i) == 1 and i in list2:
+            new_list.append(i)
+            if list2.count(i) > 1:
+                new_list.append(i)
+    return new_list
+    
 
 
 def unique_common_items(list1, list2):
