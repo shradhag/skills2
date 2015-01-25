@@ -96,19 +96,17 @@ def common_items(list1, list2):
         [1, 1, 2, 2]
 
     """
-    # new_list = []    # Creating a new list containing two lists
-    # new_list.extend(list1)
-    # new_list.extend(list2)
-    # #return new_list
-    # the_dict = {}    #
-    # for i in new_list:
-    #     the_dict[i] = new_list.count(i)
+    new_list = []    # Creating a new list containing two lists
+    new_list.extend(list1)
+    new_list.extend(list2)
+    #return new_list
+    the_second_list = [] #
+    for i in new_list:
+       if new_list.count(i) > 1:
+            the_second_list.append(i)
+    return the_second_list
 
-    # the_keys = []
-    # for key, value in the_dict.items():
-    #     if the_dict[key] > 1:
-    #         the_keys.append(key)
-    # return the_keys
+
 
 
 def unique_common_items(list1, list2):
@@ -173,10 +171,14 @@ def sum_zero(list1):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
-
-    return []
-
-
+    list1, r = sorted(list1), []
+ 
+    for i, x in enumerate(list1):
+        while list1[-1] > -x: list1.pop()
+        if list1[-1] == -x and len(list1) > i + 1: r.append((x, -x)); list1.pop()
+ 
+    return r
+ 
 def find_duplicates(words):
     """Given a list of words, return the list with duplicates removed.
 
@@ -193,8 +195,8 @@ def find_duplicates(words):
         ['Rose', 'a', 'is', 'rose']
 
     """
-
-    return []
+    my_set = set(words)
+    return my_set
 
 
 def word_length(words):
@@ -210,8 +212,13 @@ def word_length(words):
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
     """
-
-    return []
+    my_lengths = {}
+    for word in words:
+        if len(word) not in my_lengths:
+            my_lengths[len(word)] = [word]
+        else:
+            my_lengths[len(word)].append(word)
+    return my_lengths.items()
 
 
 def adv_word_length_sorted_words(words):
@@ -228,8 +235,18 @@ def adv_word_length_sorted_words(words):
         [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
 
     """
+    
+    my_lengths = {}
+    for word in words:
+        if len(word) not in my_lengths:
+            my_lengths[len(word)] = [word]
+        else:
+            my_lengths[len(word)].append(word)
+    # the_dict = my_lengths.items()
+    for key, value in my_lengths.items():
+        my_lengths[key] = sorted(value)
+    return my_lengths.items()
 
-    return []
 
 
 def pirate_talk(phrase):
@@ -274,8 +291,13 @@ def pirate_talk(phrase):
         'me swabbie be not a man!'
 
     """
+    my_dict = {"sir": "matey", "hotel": "fleabag inn", "student": "swabbie",
+            "boy": "matey", "madam": "proud beauty", "professor": "foul blaggart",
+            "restaurant": "galley", "your": "yer", "excuse": "arr", "students": "swabbies",
+            "are": "be","lawyer": "foul blaggart", "the" :"th'", "restroom": "head",
+            "my": "me", "hello": "avast", "is": "be","man": "matey" }
+    
 
-    return ""
 
 
 ##############################################################################
